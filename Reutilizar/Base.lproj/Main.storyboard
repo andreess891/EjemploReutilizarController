@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6U3-fC-Rxb">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Reutilizar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9d-TW-JRO">
+                                <rect key="frame" x="168" y="285" width="38" height="30"/>
+                                <state key="normal" title="Crear"/>
+                                <connections>
+                                    <segue destination="P84-up-DDs" kind="show" id="yds-DS-FxB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4HS-3o-Vkd">
+                                <rect key="frame" x="167" y="352" width="40" height="30"/>
+                                <state key="normal" title="Editar"/>
+                                <connections>
+                                    <segue destination="w9K-g7-5l4" kind="show" id="S2B-PZ-s1A"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4HS-3o-Vkd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="C2i-Us-ICN"/>
+                            <constraint firstItem="4HS-3o-Vkd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.1" id="OZO-78-sKx"/>
+                            <constraint firstItem="g9d-TW-JRO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TWH-Pg-Vlx"/>
+                            <constraint firstItem="g9d-TW-JRO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.9" id="yHh-DJ-GRq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OwG-i0-o3t"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1460" y="-689.5052473763119"/>
+        </scene>
+        <!--Editar-->
+        <scene sceneID="Ypa-9z-qvV">
+            <objects>
+                <viewController storyboardIdentifier="EditarContainerViewController" title="Editar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w9K-g7-5l4" customClass="EditarContainerViewController" customModule="Reutilizar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rVM-dG-2Kp"/>
+                        <viewControllerLayoutGuide type="bottom" id="eEE-Xj-Nhp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uGi-AI-t3y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukF-Pd-lnj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <connections>
+                                    <segue destination="Non-fk-SaT" kind="embed" identifier="CrearEditarSegue" id="kXb-vi-BiJ"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ukF-Pd-lnj" firstAttribute="top" secondItem="rVM-dG-2Kp" secondAttribute="bottom" id="AJu-EF-avP"/>
+                            <constraint firstAttribute="trailing" secondItem="ukF-Pd-lnj" secondAttribute="trailing" id="uU9-3I-W2W"/>
+                            <constraint firstItem="ukF-Pd-lnj" firstAttribute="leading" secondItem="uGi-AI-t3y" secondAttribute="leading" id="zOZ-oZ-WD6"/>
+                            <constraint firstItem="eEE-Xj-Nhp" firstAttribute="top" secondItem="ukF-Pd-lnj" secondAttribute="bottom" id="zd2-2X-m3o"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ODb-l0-aql" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1460" y="123"/>
+        </scene>
+        <!--Crear-->
+        <scene sceneID="dvC-Bs-fDe">
+            <objects>
+                <viewController storyboardIdentifier="CrearContainerViewController" title="Crear" useStoryboardIdentifierAsRestorationIdentifier="YES" id="P84-up-DDs" customClass="CrearContainerViewController" customModule="Reutilizar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l0v-wB-az6"/>
+                        <viewControllerLayoutGuide type="bottom" id="7oL-AM-MZm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b0G-oi-49E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huE-2a-sD3">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <connections>
+                                    <segue destination="Non-fk-SaT" kind="embed" identifier="CrearEditarSegue" id="yNX-OH-PCO"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7oL-AM-MZm" firstAttribute="top" secondItem="huE-2a-sD3" secondAttribute="bottom" id="KJt-FL-Dfe"/>
+                            <constraint firstItem="huE-2a-sD3" firstAttribute="top" secondItem="l0v-wB-az6" secondAttribute="bottom" id="dJV-ZM-IAJ"/>
+                            <constraint firstItem="huE-2a-sD3" firstAttribute="leading" secondItem="b0G-oi-49E" secondAttribute="leading" id="ltQ-v6-pab"/>
+                            <constraint firstAttribute="trailing" secondItem="huE-2a-sD3" secondAttribute="trailing" id="su5-ZK-qFB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="childView" destination="huE-2a-sD3" id="FP5-j2-sys"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PJF-H5-fP0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2702" y="-690"/>
+        </scene>
+        <!--Crear Editar View Controller-->
+        <scene sceneID="fJT-6V-erk">
+            <objects>
+                <viewController storyboardIdentifier="CrearEditarViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Non-fk-SaT" customClass="CrearEditarViewController" customModule="Reutilizar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lh5-l2-1jG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombres" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfo-VV-dui">
+                                <rect key="frame" x="19" y="256.5" width="337.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apellidos" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KTg-9I-INd">
+                                <rect key="frame" x="19" y="286.5" width="337.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZrT-Ru-k85">
+                                <rect key="frame" x="0.0" y="542.5" width="375" height="60.5"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Crear/Editar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="CrearEditarAction:" destination="Non-fk-SaT" eventType="touchUpInside" id="3we-Sd-n1v"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="precio" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kSI-0C-0oD">
+                                <rect key="frame" x="19.5" y="316.5" width="337.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZrT-Ru-k85" secondAttribute="trailing" id="1dd-vN-U4c"/>
+                            <constraint firstItem="kSI-0C-0oD" firstAttribute="centerY" secondItem="Lh5-l2-1jG" secondAttribute="centerY" multiplier="1.1" id="5yP-nc-JdJ"/>
+                            <constraint firstItem="KTg-9I-INd" firstAttribute="centerX" secondItem="Lh5-l2-1jG" secondAttribute="centerX" id="Ay8-EL-kSQ"/>
+                            <constraint firstItem="ZrT-Ru-k85" firstAttribute="height" secondItem="Lh5-l2-1jG" secondAttribute="height" multiplier="0.1" id="Ezn-Dl-gFw"/>
+                            <constraint firstItem="kSI-0C-0oD" firstAttribute="width" secondItem="Lh5-l2-1jG" secondAttribute="width" multiplier="0.9" id="GVB-bV-r7a"/>
+                            <constraint firstItem="KTg-9I-INd" firstAttribute="centerY" secondItem="Lh5-l2-1jG" secondAttribute="centerY" id="MNA-WI-JcK"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="ZrT-Ru-k85" secondAttribute="bottom" id="Omr-DA-gAy"/>
+                            <constraint firstItem="mfo-VV-dui" firstAttribute="centerX" secondItem="Lh5-l2-1jG" secondAttribute="centerX" id="Z9T-to-uv5"/>
+                            <constraint firstItem="mfo-VV-dui" firstAttribute="centerY" secondItem="Lh5-l2-1jG" secondAttribute="centerY" multiplier="0.9" id="aJ0-mb-HpO"/>
+                            <constraint firstItem="kSI-0C-0oD" firstAttribute="centerX" secondItem="Lh5-l2-1jG" secondAttribute="centerX" id="bOy-08-7Ty"/>
+                            <constraint firstItem="ZrT-Ru-k85" firstAttribute="leading" secondItem="Lh5-l2-1jG" secondAttribute="leading" id="g11-Jq-lb6"/>
+                            <constraint firstItem="mfo-VV-dui" firstAttribute="width" secondItem="Lh5-l2-1jG" secondAttribute="width" multiplier="0.9" id="ln4-7A-Liw"/>
+                            <constraint firstItem="KTg-9I-INd" firstAttribute="width" secondItem="Lh5-l2-1jG" secondAttribute="width" multiplier="0.9" id="zTP-z6-WDg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="crearEditarButton" destination="ZrT-Ru-k85" id="pbt-2R-kde"/>
+                        <outlet property="txtApellidos" destination="KTg-9I-INd" id="ceT-w0-bBE"/>
+                        <outlet property="txtNombres" destination="mfo-VV-dui" id="PXD-Ni-P00"/>
+                        <outlet property="txtPrecio" destination="kSI-0C-0oD" id="CUM-hC-v18"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zuo-4n-gOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2702" y="123"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rH1-4a-aW9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6U3-fC-Rxb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KJe-MZ-CrB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Nlo-wp-IYi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c46-OB-gch" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="520.79999999999995" y="-689.5052473763119"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="kXb-vi-BiJ"/>
+    </inferredMetricsTieBreakers>
+</document>
