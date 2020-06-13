@@ -35,11 +35,11 @@ class CrearEditarViewController: UIViewController, UITextFieldDelegate {
         
         switch accionAEjecutar! {
         case .Crear:
-            self.crearEditarButton.setTitle("Crear", for: UIControlState.normal)
+            self.crearEditarButton.setTitle("Crear", for: UIControl.State.normal)
             self.enableButton(enable: false)
         case .Editar:
             self.enableButton(enable: true)
-            self.crearEditarButton.setTitle("Editar", for: UIControlState.normal)
+            self.crearEditarButton.setTitle("Editar", for: UIControl.State.normal)
             
             if usuario?.nombres == nil || (usuario?.nombres?.isEmpty)! {
                 self.enableButton(enable: false)
@@ -57,8 +57,9 @@ class CrearEditarViewController: UIViewController, UITextFieldDelegate {
         txtNombres.addTarget(self, action: #selector(checkFields), for: .editingChanged)
         txtApellidos.addTarget(self, action: #selector(checkFields), for: .editingChanged)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,7 +85,7 @@ class CrearEditarViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func checkFields(sender: UITextField) {
+    @objc func checkFields(sender: UITextField) {
         sender.text = sender.text?.trimmingCharacters(in: .whitespaces)
         guard
             let nomb = txtNombres.text, !nomb.isEmpty,
@@ -101,9 +102,9 @@ class CrearEditarViewController: UIViewController, UITextFieldDelegate {
         delegate?.buttonAction(usuario: Usuario.init(nombres: txtNombres.text!, apellidos: txtApellidos.text!))
     }
     
-    func keyboardWillShow(notification: NSNotification) {
+    @objc func keyboardWillShow(notification: NSNotification) {
         
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if view.frame.origin.y == 0{
                 self.view.frame.origin.y -= keyboardSize.height
             }
@@ -114,8 +115,8 @@ class CrearEditarViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if view.frame.origin.y != 0 {
                 self.view.frame.origin.y += keyboardSize.height
             }
@@ -132,8 +133,8 @@ class CrearEditarViewController: UIViewController, UITextFieldDelegate {
             print(currentString)
             formatCurrency(string: currentString)
         default:
-            let array = Array(string.characters)
-            var currentStringArray = Array(currentString.characters)
+            let array = Array(string)
+            var currentStringArray = Array(currentString)
             if array.count == 0 && currentStringArray.count != 0 {
                 currentStringArray.removeLast()
                 currentString = ""
@@ -153,7 +154,7 @@ class CrearEditarViewController: UIViewController, UITextFieldDelegate {
         } else {
             let formatter = NumberFormatter()
             formatter.numberStyle = .currency
-            formatter.locale = NSLocale(localeIdentifier: "es_CO") as Locale!
+            formatter.locale = NSLocale(localeIdentifier: "es_CO") as Locale?
             let numberFromField = (NSString(string: currentString).doubleValue)
             var textFormated = formatter.string(from: NSNumber(value: numberFromField))
             textFormated = textFormated?.replacingOccurrences(of: "$", with: "").trimmingCharacters(in: CharacterSet.whitespaces)
